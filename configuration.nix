@@ -66,12 +66,30 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
+
+programs.firefox.enable = true;
+
+environment.systemPackages = with pkgs; [
+  wl-clipboard cliphist      # clipboard
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
     kitty
-  ];
+    gh
+  grim slurp                 # screenshots
+  brightnessctl playerctl    # laptop brightness + media keys
+  pavucontrol                # audio control
+  nautilus                   # file manager
+  hyprpolkitagent            # password prompts for GUI apps
+  papirus-icon-theme bibata-cursors
+];
+
+fonts.packages = with pkgs; [
+  nerd-fonts.jetbrains-mono
+  inter
+  noto-fonts
+  noto-fonts-color-emoji
+];
 
   environment.variables.EDITOR = "vim";
 

@@ -1,22 +1,34 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   home.username = "damian";
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
   
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = null;
-    portalPackage = null;
-    systemd.enable = false;
-    settings = {
-      "$mod" = "SUPER";
-      bind = [
-       "$mod, Return, exec, kitty"
-       "$mod, Q, killactive"
-      ];
+  xdg.configFile."hypr".source = 
+    config.lib.file.mkOutOfStoreSymlink "/home/damian/nixos-config/hypr";
+  
+  programs.foot = {
+  enable = true;
+  settings = {
+    main = {
+      font = "JetBrainsMono Nerd Font:size=11";
+      pad = "12x12";
+    };
+    "colors-dark" = {
+      alpha = 0.85;
+      background = "0f0a0c";
+      foreground = "d6d2d4";
+      regular0 = "1a1215"; bright0 = "4a3a40";
+      regular1 = "c3143c"; bright1 = "e0385e";
+      regular2 = "8a9a6e"; bright2 = "a6b88a";
+      regular3 = "c9a26b"; bright3 = "e0bd8a";
+      regular4 = "7a7f9a"; bright4 = "989db8";
+      regular5 = "a8385a"; bright5 = "c95a7c";
+      regular6 = "8a9ea0"; bright6 = "a8bcbe";
+      regular7 = "b8b4b6"; bright7 = "e6e2e4";
     };
   };
+};
   
   programs.caelestia = {
     enable = true;
