@@ -29,13 +29,51 @@
     };
   };
 };
+
+  services.kanshi = {
+  enable = true;
+  systemdTarget = "graphical-session.target";
+  settings = [
+    {
+      profile.name = "undocked";
+      profile.outputs = [
+        { criteria = "eDP-1"; status = "enable"; scale = 1.5; }
+      ];
+    }
+    {
+      profile.name = "docked";
+      profile.outputs = [
+        { criteria = "eDP-1"; status = "disable"; }
+        {
+          criteria = "AOC Q27G2WG4 0x000122AE";
+          mode = "2560x1440@143.91Hz";
+          position = "0,0";
+        }
+        {
+          criteria = "AOC Q27G42XE 2S6S2HA003532";
+          mode = "2560x1440@144.00Hz";
+          position = "2560,0";
+        }
+        {
+          criteria = "AOC Q27G2WG4 0x000009DD";
+          mode = "2560x1440@143.91Hz";
+          position = "5120,0";
+        }
+      ];
+    }
+  ];
+};
  
   home.packages = with pkgs; [
     go gopls
     gcc gnumake
     clang-tools
-    obs helix
-  ]
+    helix
+  ];
+
+  programs.obs-studio = {
+    enable = true;
+  };
  
   programs.caelestia = {
     enable = true;

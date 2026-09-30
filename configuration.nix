@@ -16,7 +16,7 @@
   };
 
   programs.regreet.enable = true;
-
+  programs.regreet.cageArgs = [ "-s" "-m" "last" ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
