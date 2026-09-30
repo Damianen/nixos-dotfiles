@@ -3,7 +3,7 @@
   home.username = "damian";
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
-  
+ 
   xdg.configFile."hypr".source = 
     config.lib.file.mkOutOfStoreSymlink "/home/damian/nixos-config/hypr";
   
@@ -29,7 +29,14 @@
     };
   };
 };
-  
+ 
+  home.packages = with pkgs; [
+    go gopls
+    gcc gnumake
+    clang-tools
+    obs helix
+  ]
+ 
   programs.caelestia = {
     enable = true;
     cli.enable = true;
