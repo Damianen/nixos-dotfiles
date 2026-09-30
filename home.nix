@@ -69,7 +69,6 @@
     go gopls
     gcc gnumake
     clang-tools
-    helix
   ];
 
   programs.obs-studio = {
