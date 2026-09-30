@@ -1,5 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
+  imports = [ ./helix.nix ];
   home.username = "damian";
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
