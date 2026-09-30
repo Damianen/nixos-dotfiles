@@ -69,6 +69,7 @@
     go gopls
     gcc gnumake
     clang-tools
+    spotify
   ];
 
   programs.obs-studio = {
