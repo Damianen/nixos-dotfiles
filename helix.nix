@@ -10,7 +10,7 @@
     extraPackages = with pkgs; [
       gopls
       clang-tools # clangd
-      nil         # nix lsp
+      nil # nix lsp
       nixfmt
     ];
 
@@ -32,11 +32,13 @@
         lsp = {
           display-messages = true;
           display-inlay-hints = true;
+          auto-signature-help = false;
         };
       };
 
       keys.insert."C-c" = "normal_mode";
       keys.select."C-c" = "normal_mode";
+      keys.normal."C-c" = "no_op";
     };
 
     languages.language = [
@@ -51,34 +53,98 @@
       # no bg on ui.background = terminal (and foot's alpha) shows through
       "ui.background" = { };
       "ui.text" = "fg";
-      "ui.text.focus" = { fg = "fg"; modifiers = [ "bold" ]; };
-      "ui.cursor" = { fg = "bg0"; bg = "rose"; };
-      "ui.cursor.primary" = { fg = "bg0"; bg = "crimson"; };
-      "ui.cursor.match" = { fg = "crimson_bright"; modifiers = [ "bold" "underlined" ]; };
-      "ui.selection" = { bg = "wine"; };
-      "ui.selection.primary" = { bg = "wine"; };
-      "ui.cursorline.primary" = { bg = "bg1"; };
+      "ui.text.focus" = {
+        fg = "fg";
+        modifiers = [ "bold" ];
+      };
+      "ui.cursor" = {
+        fg = "bg0";
+        bg = "rose";
+      };
+      "ui.cursor.primary" = {
+        fg = "bg0";
+        bg = "crimson";
+      };
+      "ui.cursor.match" = {
+        fg = "crimson_bright";
+        modifiers = [
+          "bold"
+          "underlined"
+        ];
+      };
+      "ui.selection" = {
+        bg = "wine";
+      };
+      "ui.selection.primary" = {
+        bg = "wine";
+      };
+      "ui.cursorline.primary" = {
+        bg = "bg1";
+      };
       "ui.linenr" = "bg3";
       "ui.linenr.selected" = "crimson";
       "ui.gutter" = { };
-      "ui.statusline" = { fg = "fg"; bg = "bg1"; };
-      "ui.statusline.inactive" = { fg = "muted"; bg = "bg1"; };
-      "ui.statusline.normal" = { fg = "bg0"; bg = "crimson"; modifiers = [ "bold" ]; };
-      "ui.statusline.insert" = { fg = "bg0"; bg = "green"; modifiers = [ "bold" ]; };
-      "ui.statusline.select" = { fg = "bg0"; bg = "yellow"; modifiers = [ "bold" ]; };
-      "ui.bufferline" = { fg = "muted"; bg = "bg1"; };
-      "ui.bufferline.active" = { fg = "fg"; bg = "wine"; };
-      "ui.popup" = { bg = "bg1"; };
+      "ui.statusline" = {
+        fg = "fg";
+        bg = "bg1";
+      };
+      "ui.statusline.inactive" = {
+        fg = "muted";
+        bg = "bg1";
+      };
+      "ui.statusline.normal" = {
+        fg = "bg0";
+        bg = "crimson";
+        modifiers = [ "bold" ];
+      };
+      "ui.statusline.insert" = {
+        fg = "bg0";
+        bg = "green";
+        modifiers = [ "bold" ];
+      };
+      "ui.statusline.select" = {
+        fg = "bg0";
+        bg = "yellow";
+        modifiers = [ "bold" ];
+      };
+      "ui.bufferline" = {
+        fg = "muted";
+        bg = "bg1";
+      };
+      "ui.bufferline.active" = {
+        fg = "fg";
+        bg = "wine";
+      };
+      "ui.popup" = {
+        bg = "bg1";
+      };
       "ui.window" = "bg3";
-      "ui.help" = { fg = "fg"; bg = "bg1"; };
-      "ui.menu" = { fg = "fg"; bg = "bg1"; };
-      "ui.menu.selected" = { fg = "bg0"; bg = "crimson"; };
+      "ui.help" = {
+        fg = "fg";
+        bg = "bg1";
+      };
+      "ui.menu" = {
+        fg = "fg";
+        bg = "bg1";
+      };
+      "ui.menu.selected" = {
+        fg = "bg0";
+        bg = "crimson";
+      };
       "ui.virtual.indent-guide" = "bg2";
       "ui.virtual.whitespace" = "bg2";
-      "ui.virtual.ruler" = { bg = "bg1"; };
-      "ui.virtual.inlay-hint" = { fg = "bg3"; modifiers = [ "italic" ]; };
+      "ui.virtual.ruler" = {
+        bg = "bg1";
+      };
+      "ui.virtual.inlay-hint" = {
+        fg = "bg3";
+        modifiers = [ "italic" ];
+      };
 
-      "comment" = { fg = "muted"; modifiers = [ "italic" ]; };
+      "comment" = {
+        fg = "muted";
+        modifiers = [ "italic" ];
+      };
       "keyword" = "crimson";
       "keyword.control" = "crimson_bright";
       "function" = "rose";
@@ -100,10 +166,20 @@
       "label" = "crimson";
       "tag" = "crimson";
 
-      "markup.heading" = { fg = "crimson"; modifiers = [ "bold" ]; };
-      "markup.bold" = { modifiers = [ "bold" ]; };
-      "markup.italic" = { modifiers = [ "italic" ]; };
-      "markup.link.url" = { fg = "blue"; modifiers = [ "underlined" ]; };
+      "markup.heading" = {
+        fg = "crimson";
+        modifiers = [ "bold" ];
+      };
+      "markup.bold" = {
+        modifiers = [ "bold" ];
+      };
+      "markup.italic" = {
+        modifiers = [ "italic" ];
+      };
+      "markup.link.url" = {
+        fg = "blue";
+        modifiers = [ "underlined" ];
+      };
       "markup.raw" = "green";
 
       "diff.plus" = "green";
@@ -114,10 +190,30 @@
       "warning" = "yellow";
       "info" = "blue";
       "hint" = "muted";
-      "diagnostic.error" = { underline = { color = "crimson_bright"; style = "curl"; }; };
-      "diagnostic.warning" = { underline = { color = "yellow"; style = "curl"; }; };
-      "diagnostic.info" = { underline = { color = "blue"; style = "curl"; }; };
-      "diagnostic.hint" = { underline = { color = "muted"; style = "curl"; }; };
+      "diagnostic.error" = {
+        underline = {
+          color = "crimson_bright";
+          style = "curl";
+        };
+      };
+      "diagnostic.warning" = {
+        underline = {
+          color = "yellow";
+          style = "curl";
+        };
+      };
+      "diagnostic.info" = {
+        underline = {
+          color = "blue";
+          style = "curl";
+        };
+      };
+      "diagnostic.hint" = {
+        underline = {
+          color = "muted";
+          style = "curl";
+        };
+      };
 
       palette = {
         bg0 = "#0f0a0c";

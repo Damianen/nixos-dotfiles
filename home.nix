@@ -19,6 +19,7 @@
         font = "JetBrainsMono Nerd Font:size=11";
         pad = "12x12";
       };
+      cursor.beam-thickness = 2;
       "colors-dark" = {
         alpha = 0.85;
         background = "0f0a0c";
@@ -39,6 +40,7 @@
         bright6 = "a8bcbe";
         regular7 = "b8b4b6";
         bright7 = "e6e2e4";
+        cursor = "0f0a0c ff4d73";
       };
     };
   };

@@ -81,3 +81,22 @@ hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))  -- log out (do
 -- hl.on("hyprland.start", function()
 --   hl.exec_cmd("caelestia shell -d")
 -- end)
+
+-- drag windows with SUPER + left mouse, resize with SUPER + right mouse
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- move window with SUPER + SHIFT + arrows (crosses to the next screen at the edge)
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "l" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "r" }))
+hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "u" }))
+hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "d" }))
+
+-- workspaces: SUPER + 1..9 to switch, SUPER + SHIFT + 1..9 to send the window there
+for i = 1, 9 do
+  hl.bind(mainMod .. " + " .. i,           hl.dsp.focus({ workspace = tostring(i) }))
+  hl.bind(mainMod .. " + SHIFT + " .. i,   hl.dsp.window.move({ workspace = tostring(i) }))
+end
+
+-- caelestia app launcher
+hl.bind(mainMod .. " + Space", hl.dsp.global("caelestia:launcher"))
