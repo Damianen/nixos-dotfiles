@@ -49,21 +49,6 @@
       }
     ];
 
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-    };
-
-    hardware.graphics = {
-      enable = true;
-      extraPackages = with pkgs; [ intel-media-driver ];
-    };
-
-    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
     themes.crimson = {
       # no bg on ui.background = terminal (and foot's alpha) shows through
       "ui.background" = { };
