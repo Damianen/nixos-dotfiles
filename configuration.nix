@@ -92,6 +92,7 @@ fonts.packages = with pkgs; [
 ];
 
   environment.variables.EDITOR = "vim";
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
   nixpkgs.config.allowUnfree = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
