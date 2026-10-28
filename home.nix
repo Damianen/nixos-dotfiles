@@ -10,6 +10,8 @@
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
 
+  programs.bash.enable = true;
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
