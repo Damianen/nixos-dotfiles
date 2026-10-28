@@ -10,6 +10,11 @@
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/damian/nixos-config/hypr";
 
   programs.foot = {
