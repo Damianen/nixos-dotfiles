@@ -17,6 +17,15 @@
     nix-direnv.enable = true;
   };
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks."github.com" = {
+      user = "git";
+      identityFile = "~/.ssh/id_ed25519_github";
+      identitiesOnly = true;
+    };
+  };
+
   xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/damian/nixos-config/hypr";
 
   programs.foot = {
