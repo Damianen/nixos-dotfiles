@@ -5,7 +5,10 @@
   ...
 }:
 {
-  imports = [ ./helix.nix ];
+  imports = [
+    ./helix.nix
+    ./studententuin-dev.nix
+  ];
   home.username = "damian";
   home.homeDirectory = "/home/damian";
   home.stateVersion = "25.11";
