@@ -29,6 +29,7 @@
           ./configuration.nix
           ./caelestia.nix
           ./obs.nix
+          ./studententuin-dev.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
