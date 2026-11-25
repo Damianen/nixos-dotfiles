@@ -15,6 +15,8 @@
     withUWSM = true;
   };
 
+  # services.gvfs.enable = true;
+
   programs.regreet.enable = true;
   programs.regreet.cageArgs = [ "-s" "-m" "last" ];
   # Use the systemd-boot EFI boot loader.
