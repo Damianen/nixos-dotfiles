@@ -21,10 +21,15 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."github.com" = {
-      user = "git";
-      identityFile = "~/.ssh/id_ed25519_signing";
-      identitiesOnly = true;
+    matchBlocks = {
+      "github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_signing";
+        identitiesOnly = true;
+      };
+      pve = { hostname = "192.168.1.10"; user = "root"; };
+      "tuin-*" = { user = "damian"; proxyJump = "pve"; };
+      tuin-runner.hostname = "10.10.0.12";
     };
   };
 
