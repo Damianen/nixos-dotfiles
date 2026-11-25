@@ -27,8 +27,14 @@
         identityFile = "~/.ssh/id_ed25519_signing";
         identitiesOnly = true;
       };
-      pve = { hostname = "192.168.1.10"; user = "root"; };
-      "tuin-*" = { user = "damian"; proxyJump = "pve"; };
+      pve = {
+        hostname = "192.168.178.10";
+        user = "root";
+      };
+      "tuin-*" = {
+        user = "damian";
+        proxyJump = "pve";
+      };
       tuin-runner.hostname = "10.10.0.11";
       tuin-control.hostname = "10.10.0.12";
     };
