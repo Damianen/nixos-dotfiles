@@ -28,7 +28,7 @@
         identitiesOnly = true;
       };
       pve = {
-        hostname = "192.168.178.10";
+        hostname = "192.168.178.50";
         user = "root";
       };
       "tuin-*" = {
