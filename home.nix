@@ -29,7 +29,8 @@
       };
       pve = { hostname = "192.168.1.10"; user = "root"; };
       "tuin-*" = { user = "damian"; proxyJump = "pve"; };
-      tuin-runner.hostname = "10.10.0.12";
+      tuin-runner.hostname = "10.10.0.11";
+      tuin-control.hostname = "10.10.0.12";
     };
   };
 
