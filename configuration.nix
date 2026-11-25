@@ -15,7 +15,7 @@
     withUWSM = true;
   };
 
-  # services.gvfs.enable = true;
+  services.gvfs.enable = true;
 
   programs.regreet.enable = true;
   programs.regreet.cageArgs = [ "-s" "-m" "last" ];
