@@ -16,6 +16,7 @@
   };
 
   services.gvfs.enable = true;
+  services.tailscale.enable = true;
 
   programs.regreet.enable = true;
   programs.regreet.cageArgs = [ "-s" "-m" "last" ];
